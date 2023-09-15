@@ -9,6 +9,8 @@ import { fakeData } from "../data/fakeData";
 import DataComponent from "./DataComponent";
 import DeletePosComp from "./DeletePosComp";
 import DeleteEmployComp from "./DeleteEmployComp";
+import NewData from "./NewData";
+import { newInfoData } from "../data/newInfoData";
 
 const Home = () => {
   const [renderEmploys, setRenderEmploys] = useState(false);
@@ -16,10 +18,20 @@ const Home = () => {
   const [renderPos, setRenderPos] = useState(false);
   const [deletePosData, setDeletePosData] = useState(false);
   const [deleteEmployData, setDeleteEmployData] = useState(false);
+  const [addEmploy, setAddEmploy] = useState(false);
+  const [addPosition, setAddPosition] = useState(false);
 
   useEffect(() => {
     handleRenderCont();
   }, []);
+
+  const handleAddPosition = () => {
+    setAddPosition(true);
+  };
+
+  const handleAddEmploy = () => {
+    setAddEmploy(true);
+  };
 
   const handleRenderEmploys = () => {
     setDeletePosData(false);
@@ -69,6 +81,7 @@ const Home = () => {
             state={employPostData.employs.state}
             phone={employPostData.employs.phone}
             onClickArrow={handleRenderCont}
+            onClickAdd={handleAddEmploy}
           >
             {fakeData.map((el, index) => (
               <DataComponent
@@ -92,6 +105,7 @@ const Home = () => {
             role={employPostData.position.role}
             onClickArrow={handleRenderCont}
             position={employPostData.position.position}
+            onClickAdd={handleAddPosition}
           >
             {fakeData.map((el, index) => (
               <DataComponent
@@ -112,6 +126,36 @@ const Home = () => {
         )}
         {deleteEmployData && (
           <DeleteEmployComp onClickCancel={() => setDeleteEmployData(false)} />
+        )}
+        {addPosition && (
+          <NewData
+            set={newInfoData.newPosition.set}
+            name={newInfoData.newPosition.name}
+            borderColor={newInfoData.newPosition.borderColor}
+            firstColor={newInfoData.newPosition.firstColor}
+            lastName={newInfoData.newPosition.lastName}
+            area={newInfoData.newPosition.area}
+            position={newInfoData.newPosition.position}
+            role={newInfoData.newPosition.role}
+            boss={newInfoData.newPosition.boss}
+            onClick={() => setAddPosition(false)}
+            left={newInfoData.newPosition.left}
+          />
+        )}
+        {addEmploy && (
+          <NewData
+            set={newInfoData.newEmploy.set}
+            id={newInfoData.newEmploy.id}
+            name={newInfoData.newEmploy.name}
+            phone={newInfoData.newEmploy.phone}
+            borderColor={newInfoData.newEmploy.borderColor}
+            firstColor={newInfoData.newEmploy.firstColor}
+            lastName={newInfoData.newEmploy.lastName}
+            city={newInfoData.newEmploy.city}
+            state={newInfoData.newEmploy.state}
+            onClick={() => setAddEmploy(false)}
+            left={newInfoData.newEmploy.left.add}
+          />
         )}
       </Box>
     </>

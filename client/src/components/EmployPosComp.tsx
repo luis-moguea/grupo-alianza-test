@@ -42,6 +42,7 @@ const EmployPosComp = ({
   state,
   children,
   onClickArrow,
+  onClickAdd,
 }: Props) => {
   return (
     <Box
@@ -79,6 +80,7 @@ const EmployPosComp = ({
           height="40px"
           borderRadius="30px"
           padding="10px"
+          onClick={onClickAdd}
         >
           <Image width="20px" src={addIcon} />
           <Text fontWeight="700" fontSize="18px" color="#3737EC">

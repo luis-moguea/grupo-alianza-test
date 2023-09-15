@@ -77,6 +77,7 @@ const Content = () => {
             city={newInfoData.newEmploy.city}
             state={newInfoData.newEmploy.state}
             onClick={() => setAddEmploy(false)}
+            left={newInfoData.newEmploy.left.main}
           />
         )}
       </Box>

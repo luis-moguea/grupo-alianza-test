@@ -8,7 +8,8 @@ export const newInfoData = {
         city: "Ciudad",
         state: "Estado",
         firstColor: "#f5f5f5",
-        borderColor: "#dbdbdb"
+        borderColor: "#dbdbdb",
+        left: {add: "23%", main: "unset"}
     },
     editEmploy: {
         set: "Editar empleado",
@@ -20,6 +21,7 @@ export const newInfoData = {
         state: "Estado",
         firstColor: "#3737EC",
         borderColor: "#3737EC",
+        left: "unset"
     },
     newPosition: {
         set: "Nuevo cargo",
@@ -30,10 +32,11 @@ export const newInfoData = {
         area: "Área",
         position: "Cargo",
         role: "Rol",
-        boss: "Jefe"
+        boss: "Jefe",
+        left: "23%"
     },
     editPosition: {
-        set: "Editar empleado",
+        set: "Editar Cargo",
         name: "Nombre",
         lastName: "Apellidos",
         area: "Área",
@@ -42,6 +45,7 @@ export const newInfoData = {
         boss: "Jefe",
         firstColor: "#3737EC",
         borderColor: "#3737EC",
+        left: "unset"
     }
 }
     

@@ -17,6 +17,7 @@ interface Props {
   position?: string;
   role?: string;
   boss?: string;
+  left: string;
 }
 
 const NewData = ({
@@ -34,6 +35,7 @@ const NewData = ({
   position,
   role,
   boss,
+  left,
 }: Props) => {
   return (
     <>
@@ -46,6 +48,7 @@ const NewData = ({
         position="absolute"
         boxShadow="2px 1px 5px 3px rgba(0, 0, 0, 0.25)"
         zIndex="777"
+        left={left}
       >
         <Box
           display="flex"
