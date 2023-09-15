@@ -3,6 +3,7 @@ import navIcon from "../assets/Nav.svg";
 import arrowIcon from "../assets/Flechas verticales.svg";
 import { useState } from "react";
 import homeIcon from "../assets/Home.svg";
+
 import "../styles/arrow.css";
 
 const Sidebar = () => {
@@ -93,25 +94,41 @@ const Sidebar = () => {
             _hover={{ cursor: "pointer" }}
           />
         </Box>
-        <List display={hide || !showOptions ? "none" : "initial"}>
-          <ListItem
-            ml="30px"
-            mt="20px"
-            mb="10px"
-            fontSize="14px"
-            color="#ffffff"
-            _hover={{ cursor: "pointer" }}
+        <List width="100%" display={hide || !showOptions ? "none" : "initial"}>
+          <Box
+            width="100%"
+            p="10px 30px"
+            _hover={{
+              cursor: "pointer",
+              backgroundImage:
+                "linear-gradient(to left, #06468d, #0047a4, #0045bb, #0041cf, #3239e1)",
+            }}
           >
-            Empleados
-          </ListItem>
-          <ListItem
-            ml="30px"
-            fontSize="14px"
-            color="#ffffff"
-            _hover={{ cursor: "pointer" }}
+            <ListItem
+              fontSize="14px"
+              color="#ffffff"
+              _hover={{
+                cursor: "pointer",
+                backgroundImage:
+                  "linear-gradient(to left, #06468d, #0047a4, #0045bb, #0041cf, #3239e1)",
+              }}
+            >
+              Empleados
+            </ListItem>
+          </Box>
+          <Box
+            width="100%"
+            p="10px 30px"
+            _hover={{
+              cursor: "pointer",
+              backgroundImage:
+                "linear-gradient(to left, #06468d, #0047a4, #0045bb, #0041cf, #3239e1)",
+            }}
           >
-            Cargos
-          </ListItem>
+            <ListItem fontSize="14px" color="#ffffff">
+              Cargos
+            </ListItem>
+          </Box>
         </List>
       </Box>
     </Box>

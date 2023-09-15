@@ -1,8 +1,16 @@
 import { Box, Text, Image } from "@chakra-ui/react";
 import techLifeImg from "../assets/Tech Life Remote Life.png";
 import addIcon from "../assets/Añadir usuario.svg";
+import { useState } from "react";
+import NewData from "./NewData";
+import { newInfoData } from "../data/newInfoData";
 
 const Content = () => {
+  const [addEmploy, setAddEmploy] = useState(false);
+
+  const handleAddEmploy = () => {
+    setAddEmploy(true);
+  };
   return (
     <>
       <Box
@@ -24,7 +32,25 @@ const Content = () => {
         </Text>
         <Box>
           <Box display="flex" flexDir="column" alignItems="center">
-            <Image mt="50px" src={addIcon} _hover={{ cursor: "pointer" }} />
+            <Box
+              display="flex"
+              justifyContent="center"
+              width="50px"
+              height="50px"
+              borderRadius="25px"
+              mt="50px"
+              _hover={{
+                bgColor: "#d2d2d2",
+                cursor: "pointer",
+              }}
+            >
+              <Image
+                width="25px"
+                src={addIcon}
+                _hover={{ cursor: "pointer" }}
+                onClick={handleAddEmploy}
+              />
+            </Box>
             <Text mt="15px" fontWeight="400" fontSize="14px" color="#989898">
               Empieza aquí
             </Text>
@@ -39,6 +65,20 @@ const Content = () => {
           bottom="0"
           src={techLifeImg}
         ></Image>
+        {addEmploy && (
+          <NewData
+            set={newInfoData.newEmploy.set}
+            id={newInfoData.newEmploy.id}
+            name={newInfoData.newEmploy.name}
+            phone={newInfoData.newEmploy.phone}
+            borderColor={newInfoData.newEmploy.borderColor}
+            firstColor={newInfoData.newEmploy.firstColor}
+            lastName={newInfoData.newEmploy.lastName}
+            city={newInfoData.newEmploy.city}
+            state={newInfoData.newEmploy.state}
+            onClick={() => setAddEmploy(false)}
+          />
+        )}
       </Box>
     </>
   );
