@@ -7,7 +7,7 @@ export const employPostData = {
         state: "Departamento"
     },
     position: {
-        set: "Empleados",
+        set: "Cargos",
         address: "Dirección",
         area: "Área",
         position: "Cargo", 

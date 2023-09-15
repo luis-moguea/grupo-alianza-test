@@ -8,7 +8,6 @@ import {
   Input,
   InputRightElement,
 } from "@chakra-ui/react";
-import editIcon from "../assets/Editar.svg";
 import deleteIcon from "../assets/Borrar.svg";
 import arrowIcon from "../assets/Back.svg";
 import addIcon from "../assets/Work.svg";
@@ -42,11 +41,18 @@ const EmployPosComp = ({
   boss,
   state,
   children,
+  onClickArrow,
 }: Props) => {
   return (
-    <Box padding="80px">
+    <Box
+      padding="80px"
+      pt="20px"
+      position="relative"
+      width="100%"
+      overflow="hidden"
+    >
       <Box display="flex" ml="-30px">
-        <Image src={arrowIcon} />
+        <Image cursor="pointer" onClick={onClickArrow} src={arrowIcon} />
         <Heading>{set}</Heading>
       </Box>
       <Box display="flex" justifyContent="space-between" mt="40px">
@@ -99,8 +105,11 @@ const EmployPosComp = ({
             Nombre
           </Text>
           <InputGroup>
-            <Input></Input>
-            <InputRightElement children={<BsSearch />}></InputRightElement>
+            <Input borderRadius="20px"></Input>
+            <InputRightElement
+              opacity="0.4"
+              children={<BsSearch />}
+            ></InputRightElement>
           </InputGroup>
         </Box>
         <Box>
@@ -108,8 +117,11 @@ const EmployPosComp = ({
             Identificación
           </Text>
           <InputGroup>
-            <Input></Input>
-            <InputRightElement children={<BsSearch />}></InputRightElement>
+            <Input borderRadius="20px"></Input>
+            <InputRightElement
+              opacity="0.4"
+              children={<BsSearch />}
+            ></InputRightElement>
           </InputGroup>
         </Box>
         <Box>
@@ -117,8 +129,11 @@ const EmployPosComp = ({
             {address || area}
           </Text>
           <InputGroup>
-            <Input></Input>
-            <InputRightElement children={<BsSearch />}></InputRightElement>
+            <Input borderRadius="20px"></Input>
+            <InputRightElement
+              opacity="0.4"
+              children={<BsSearch />}
+            ></InputRightElement>
           </InputGroup>
         </Box>
         <Box>
@@ -126,8 +141,11 @@ const EmployPosComp = ({
             {phone || position}
           </Text>
           <InputGroup>
-            <Input></Input>
-            <InputRightElement children={<BsSearch />}></InputRightElement>
+            <Input borderRadius="20px"></Input>
+            <InputRightElement
+              opacity="0.4"
+              children={<BsSearch />}
+            ></InputRightElement>
           </InputGroup>
         </Box>
         <Box>
@@ -135,8 +153,11 @@ const EmployPosComp = ({
             {city || role}
           </Text>
           <InputGroup>
-            <Input></Input>
-            <InputRightElement children={<BsSearch />}></InputRightElement>
+            <Input borderRadius="20px"></Input>
+            <InputRightElement
+              opacity="0.4"
+              children={<BsSearch />}
+            ></InputRightElement>
           </InputGroup>
         </Box>
         <Box>
@@ -144,8 +165,11 @@ const EmployPosComp = ({
             {state || boss}
           </Text>
           <InputGroup>
-            <Input></Input>
-            <InputRightElement children={<BsSearch />}></InputRightElement>
+            <Input borderRadius="20px"></Input>
+            <InputRightElement
+              opacity="0.4"
+              children={<BsSearch />}
+            ></InputRightElement>
           </InputGroup>
         </Box>
         <Text fontWeight="700" fontSize="14px" mb="8px">

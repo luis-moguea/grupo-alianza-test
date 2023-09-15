@@ -51,29 +51,49 @@ const NavBar = () => {
               bgColor="#F5F5F5"
               position="absolute"
               zIndex="999"
-              pl="12px"
-              pb="12px"
-              pt="15px"
               mt="8px"
-              pr="40px"
-              right="-15%"
+              right="0"
               borderRadius="10px"
             >
-              <Text userSelect="none" mb="6px">
+              <Text
+                width="100%"
+                _hover={{ color: "#ffffff", bgColor: "#3737EC" }}
+                userSelect="none"
+                mb="6px"
+                p="5px 20px"
+              >
                 Perfil
               </Text>
-              <Text userSelect="none" mb="6px">
+              <Text
+                width="100%"
+                _hover={{ color: "#ffffff", bgColor: "#3737EC" }}
+                userSelect="none"
+                mb="6px"
+                p="5px 20px"
+              >
                 Configuraciones
               </Text>
-              <Text userSelect="none" mb="6px">
+              <Text
+                width="100%"
+                _hover={{ color: "#ffffff", bgColor: "#3737EC" }}
+                userSelect="none"
+                mb="6px"
+                p="5px 20px"
+              >
                 Soporte
               </Text>
-              <div
+              <Box
+                borderBottomRadius="10px"
                 onClick={handleNavigate}
-                style={{ cursor: "pointer", color: "#3182CE" }}
+                width="100%"
+                _hover={{ color: "#ffffff", bgColor: "#3737EC" }}
+                userSelect="none"
+                mb="6px"
+                p="5px 20px"
+                cursor="pointer"
               >
                 <Text>Salir</Text>
-              </div>
+              </Box>
             </Box>
           )}
         </Box>

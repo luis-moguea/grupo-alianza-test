@@ -3,7 +3,7 @@ import "../styles/blur.css";
 import closeIcon from "../assets/cerrar.svg";
 
 interface Props {
-  onClick: () => void;
+  onClick?: () => void;
   set: string;
   name: string;
   lastName: string;
@@ -38,13 +38,14 @@ const NewData = ({
   return (
     <>
       <Box
-        mt="40px"
+        mt="10px"
         width="800px"
         height="492px"
         borderRadius="10px"
         bgColor="#ffffff"
         position="absolute"
         boxShadow="2px 1px 5px 3px rgba(0, 0, 0, 0.25)"
+        zIndex="777"
       >
         <Box
           display="flex"

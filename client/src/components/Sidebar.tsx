@@ -6,7 +6,12 @@ import homeIcon from "../assets/Home.svg";
 
 import "../styles/arrow.css";
 
-const Sidebar = () => {
+interface Props {
+  onClickEmploys: () => void;
+  onClickPositions: () => void;
+}
+
+const Sidebar = ({ onClickEmploys, onClickPositions }: Props) => {
   const [hide, setHide] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
   const [isArrowRotated, setIsArrowRotated] = useState(false);
@@ -105,6 +110,7 @@ const Sidebar = () => {
             }}
           >
             <ListItem
+              onClick={onClickEmploys}
               fontSize="14px"
               color="#ffffff"
               _hover={{
@@ -125,7 +131,11 @@ const Sidebar = () => {
                 "linear-gradient(to left, #06468d, #0047a4, #0045bb, #0041cf, #3239e1)",
             }}
           >
-            <ListItem fontSize="14px" color="#ffffff">
+            <ListItem
+              onClick={onClickPositions}
+              fontSize="14px"
+              color="#ffffff"
+            >
               Cargos
             </ListItem>
           </Box>
