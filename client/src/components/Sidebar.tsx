@@ -1,8 +1,11 @@
 import { Box, Image, List, Text, ListItem } from "@chakra-ui/react";
 import navIcon from "../assets/Nav.svg";
 import arrowIcon from "../assets/Flechas verticales.svg";
-import { useState } from "react";
 import homeIcon from "../assets/Home.svg";
+import { useMediaQuery } from "@chakra-ui/react";
+import { useState } from "react";
+
+import "../styles/arrow.css";
 
 import "../styles/arrow.css";
 
@@ -15,6 +18,7 @@ const Sidebar = ({ onClickEmploys, onClickPositions }: Props) => {
   const [hide, setHide] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
   const [isArrowRotated, setIsArrowRotated] = useState(false);
+  const [isHigherThan480] = useMediaQuery("(min-width: 480px)");
 
   const handleToggleMenu = () => {
     setHide(!hide);
@@ -27,25 +31,29 @@ const Sidebar = ({ onClickEmploys, onClickPositions }: Props) => {
 
   return (
     <Box
-      width={hide ? "60px" : "231px"}
+      width={hide ? "60px" : isHigherThan480 ? "231px" : "50px"}
       display="block"
       bgColor="#3737EC"
-      height="100vh"
+      minHeight="100vh"
+      padding="0"
+      height="auto"
     >
       <Box
         padding={hide ? "20px" : "50px"}
         display={hide ? "block" : "flex"}
         flexDir="column"
         alignItems="center"
+        mt={isHigherThan480 ? "unset" : "-80px"}
       >
         <Image
+          display={isHigherThan480 ? "unset" : "none"}
           width="15px"
           src={navIcon}
           _hover={{ cursor: "pointer" }}
           onClick={handleToggleMenu}
         />
       </Box>
-      <Box>
+      <Box min-height="100vh">
         <Box
           height="30px"
           display="flex"
@@ -60,14 +68,15 @@ const Sidebar = ({ onClickEmploys, onClickPositions }: Props) => {
         >
           <Text
             display={hide ? "none" : "unset"}
-            ml="20px"
+            ml={isHigherThan480 ? "20px" : "5px"}
             color="#ffffff"
             alignItems="center"
+            fontSize={isHigherThan480 ? "14px" : "12px"}
           >
             Home
           </Text>
           <Image
-            ml="20px"
+            ml={isHigherThan480 ? "20px" : "unset"}
             width="18px"
             display={hide ? "initial" : "none"}
             src={homeIcon}
@@ -76,11 +85,11 @@ const Sidebar = ({ onClickEmploys, onClickPositions }: Props) => {
         <Box
           onClick={handleToggleOptions}
           mt="15px"
-          display="flex"
+          display={isHigherThan480 ? "flex" : "block"}
           width="100%"
           justifyContent="space-between"
           alignItems="center"
-          padding="20px"
+          padding={isHigherThan480 ? "20px" : "5px"}
           pt="5px"
           pb="5px"
           _hover={{
@@ -89,52 +98,56 @@ const Sidebar = ({ onClickEmploys, onClickPositions }: Props) => {
             fontWeight: "bold",
           }}
         >
-          <Text display={hide ? "none" : "unset"} color="#ffffff">
+          <Text
+            fontSize={isHigherThan480 ? "14px" : "12px"}
+            display={hide ? "none" : "unset"}
+            color="#ffffff"
+          >
             Listas
           </Text>
           <Image
+            mt={isHigherThan480 ? "unset" : "10px"}
+            ml={isHigherThan480 ? "unset" : "8px"}
             className={isArrowRotated ? "rotate" : ""}
             src={arrowIcon}
-            width="15px"
-            _hover={{ cursor: "pointer" }}
+            width={isHigherThan480 ? "15px" : "11px"}
+            cursor="pointer"
           />
         </Box>
         <List width="100%" display={hide || !showOptions ? "none" : "initial"}>
           <Box
             width="100%"
-            p="10px 30px"
+            p={isHigherThan480 ? "10px 30px" : "2px"}
             _hover={{
               cursor: "pointer",
               backgroundImage:
                 "linear-gradient(to left, #06468d, #0047a4, #0045bb, #0041cf, #3239e1)",
             }}
+            onClick={onClickEmploys}
           >
             <ListItem
-              onClick={onClickEmploys}
-              fontSize="14px"
+              display={isHigherThan480 ? "unset" : "flex"}
+              fontSize={isHigherThan480 ? "14px" : "7px"}
               color="#ffffff"
-              _hover={{
-                cursor: "pointer",
-                backgroundImage:
-                  "linear-gradient(to left, #06468d, #0047a4, #0045bb, #0041cf, #3239e1)",
-              }}
             >
               Empleados
             </ListItem>
           </Box>
           <Box
             width="100%"
-            p="10px 30px"
+            p={isHigherThan480 ? "10px 30px" : "2px"}
             _hover={{
               cursor: "pointer",
               backgroundImage:
                 "linear-gradient(to left, #06468d, #0047a4, #0045bb, #0041cf, #3239e1)",
             }}
+            onClick={onClickPositions}
           >
             <ListItem
-              onClick={onClickPositions}
-              fontSize="14px"
+              display={isHigherThan480 ? "unset" : "flex"}
+              fontSize={isHigherThan480 ? "14px" : "7px"}
               color="#ffffff"
+              ml={isHigherThan480 ? "unset" : "7px"}
             >
               Cargos
             </ListItem>

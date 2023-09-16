@@ -4,9 +4,11 @@ import addIcon from "../assets/Añadir usuario.svg";
 import { useState } from "react";
 import NewData from "./NewData";
 import { newInfoData } from "../data/newInfoData";
+import { useMediaQuery } from "@chakra-ui/react";
 
 const Content = () => {
   const [addEmploy, setAddEmploy] = useState(false);
+  const [isHigherThan480] = useMediaQuery("(min-width: 480px)");
 
   const handleAddEmploy = () => {
     setAddEmploy(true);
@@ -26,7 +28,12 @@ const Content = () => {
           <br />
           Elisa Gómez
         </Text>
-        <Text mt="50px" fontSize="18px" fontWeight="400px">
+        <Text
+          mt="50px"
+          fontSize={isHigherThan480 ? "18px" : "14px"}
+          fontWeight="400px"
+          textAlign={isHigherThan480 ? "unset" : "center"}
+        >
           Añade los datos personales de tus empleados y después agrega su cargo
           en tu empresa
         </Text>
@@ -57,6 +64,7 @@ const Content = () => {
           </Box>
         </Box>
         <Image
+          display={isHigherThan480 ? "unset" : "none"}
           position="absolute"
           width="540px"
           height="300px"
@@ -77,7 +85,7 @@ const Content = () => {
             city={newInfoData.newEmploy.city}
             state={newInfoData.newEmploy.state}
             onClick={() => setAddEmploy(false)}
-            left={newInfoData.newEmploy.left.main}
+            left={newInfoData.newEmploy.state}
           />
         )}
       </Box>

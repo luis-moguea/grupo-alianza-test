@@ -3,9 +3,12 @@ import { dataLogin } from "../data/loginData";
 import profilePic from "../assets/Perfil.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "@chakra-ui/react";
 
 const NavBar = () => {
   const [show, setShow] = useState(false);
+  const [activeBorder, setActiveBorder] = useState(false);
+  const [isHigherThan480] = useMediaQuery("(min-width: 480px)");
 
   const navigate = useNavigate();
 
@@ -16,12 +19,20 @@ const NavBar = () => {
 
   const handleShow = () => {
     setShow(!show);
+    setActiveBorder(!activeBorder);
+  };
+
+  const mouseLeave = () => {
+    setTimeout(() => {
+      setShow(false);
+    }, 4000);
   };
 
   return (
     <Box
+      width={isHigherThan480 ? "unset" : "auto"}
       height="70px"
-      padding="30px"
+      padding={isHigherThan480 ? "30px" : "20px"}
       display="flex"
       justifyContent="space-between"
       bgColor="#F5F5F5"
@@ -29,29 +40,43 @@ const NavBar = () => {
     >
       <Image
         src={dataLogin.logo}
-        height="30px"
-        width="100px"
-        objectFit="fill"
+        height={isHigherThan480 ? "30px" : "22px"}
+        width={isHigherThan480 ? "100px" : "60px"}
       />
-      <Box display="flex" textAlign="center" alignItems="center" mr="70px">
+      <Box
+        display="flex"
+        textAlign="center"
+        alignItems="center"
+        mr={isHigherThan480 ? "70px" : "unset"}
+      >
         <Image
+          border={activeBorder ? "solid 3px #3737EC" : "unset"}
+          borderRadius="50px"
+          width={isHigherThan480 ? "unset" : "40px"}
           onClick={handleShow}
           cursor="pointer"
           src={profilePic}
           mr="8px"
         />
         <Box position="relative">
-          <Text fontWeight="700" fontSize="18px" color="#3737EC">
+          <Text
+            fontWeight="700"
+            fontSize={isHigherThan480 ? "18px" : "16px"}
+            color="#3737EC"
+          >
             Elisa Gómez
           </Text>
-          <Text fontSize="14px">Administradora</Text>
+          <Text fontSize={isHigherThan480 ? "14px" : "12px"}>
+            Administradora
+          </Text>
           {show && (
             <Box
+              onMouseLeave={mouseLeave}
               textAlign="left"
               bgColor="#F5F5F5"
               position="absolute"
               zIndex="999"
-              mt="8px"
+              mt="10px"
               right="0"
               borderRadius="10px"
             >

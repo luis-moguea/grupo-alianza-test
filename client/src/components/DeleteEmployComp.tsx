@@ -1,23 +1,27 @@
 import { Box, Button, Image, Text } from "@chakra-ui/react";
 import deleteIcon from "../assets/Borrar.svg";
+import { useMediaQuery } from "@chakra-ui/react";
 
 interface Props {
   onClickCancel: () => void;
 }
 
 const DeleteEmployComp = ({ onClickCancel }: Props) => {
+  const [isHigherThan480] = useMediaQuery("(min-width: 480px)");
+
   return (
     <Box
       display="flex"
       flexDir="column"
       justifyContent="center"
       alignItems="center"
-      width="616px"
+      width={isHigherThan480 ? "616px" : "250px"}
+      textAlign={isHigherThan480 ? "unset" : "center"}
       height="492px"
       bgColor="#ffffff"
       position="absolute"
-      top="10%"
-      left="32%"
+      top={isHigherThan480 ? "10%" : "18%"}
+      left={isHigherThan480 ? "36%" : "24%"}
       bottom="50%"
       padding="30px"
       border="solid 1px"
@@ -32,28 +36,28 @@ const DeleteEmployComp = ({ onClickCancel }: Props) => {
         mt="40px"
         display="flex"
         justifyContent="center"
-        gap="40px"
+        gap={isHigherThan480 ? "40px" : "20px"}
         pb="40px"
         pt="25px"
       >
         <Button
-          width="112px"
-          height="41px"
+          width={isHigherThan480 ? "112px" : "80px"}
+          height={isHigherThan480 ? "41px" : "30px"}
+          fontSize={isHigherThan480 ? "18px" : "14px"}
           borderRadius="20px"
           bgColor="#3737EC"
           color="#ffffff"
-          fontSize="18px"
           onClick={onClickCancel}
         >
           Cancelar
         </Button>
         <Button
-          width="112px"
-          height="41px"
+          width={isHigherThan480 ? "112px" : "80px"}
+          height={isHigherThan480 ? "41px" : "30px"}
+          fontSize={isHigherThan480 ? "18px" : "14px"}
           borderRadius="20px"
           bgColor="#D2D2D2"
           color="#989898"
-          fontSize="18px"
         >
           Guardar
         </Button>

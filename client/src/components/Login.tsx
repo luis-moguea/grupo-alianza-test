@@ -15,6 +15,7 @@ import { PiEyeLight } from "react-icons/pi";
 import { dataLogin } from "../data/loginData";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "@chakra-ui/react";
 
 const Login = () => {
   const [hide, setHide] = useState(false);
@@ -22,6 +23,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [save, setSave] = useState(false);
+  const [isHigherThan480] = useMediaQuery("(min-width: 480px)");
 
   const navigate = useNavigate();
 
@@ -67,46 +69,62 @@ const Login = () => {
 
   return (
     <>
-      <Box display="flex">
-        <Box position="relative">
+      <Box display={isHigherThan480 ? "flex" : "block"} overflowY="hidden">
+        <Box position="relative" height="100vh">
           <Image src={dataLogin.image} />
           <Box
             position="absolute"
-            top="70%"
-            left="38%"
-            transform="translate(-50%, -50%)"
+            top={isHigherThan480 ? "54%" : "20%"}
+            left={isHigherThan480 ? "5%" : "4%"}
           >
-            <Text color="#ffffff" fontSize="40px">
+            <Text color="#ffffff" fontSize={isHigherThan480 ? "44px" : "14px"}>
               Bienvenido a la mejor plataforma
             </Text>
-            <Text mt="-10px" fontWeight="500" color="#ffffff" fontSize="40px">
+            <Text
+              mt={isHigherThan480 ? "-10px" : "0"}
+              fontWeight="500"
+              color="#ffffff"
+              fontSize={isHigherThan480 ? "44px" : "14px"}
+            >
               organizacional online.
             </Text>
-            <Text mt="20px" color="#ffffff" fontSize="32px">
+            <Text
+              mt="20px"
+              color="#ffffff"
+              fontSize={isHigherThan480 ? "44px" : "14px"}
+            >
               Gestion efectiva del talento humano
             </Text>
           </Box>
         </Box>
         <Box
-          width="724px"
+          width={isHigherThan480 ? "724px" : "400px"}
           display="block"
           alignItems="center"
           justifyContent="center"
-          padding="100px"
+          padding={isHigherThan480 ? "100px" : "40px"}
+          pb="0"
+          mt={isHigherThan480 ? "unset" : "-550px"}
         >
-          <Image src={dataLogin.logo} pb="40px" />
+          <Image
+            width={isHigherThan480 ? "unset" : "100px"}
+            src={dataLogin.logo}
+            pb="20px"
+            ml={isHigherThan480 ? "unset" : "90px"}
+          />
           <FormControl>
             <FormLabel
               fontWeight="400"
               ml="-8px"
               mt="40px"
               mb="8px"
-              fontSize="14px"
+              fontSize={isHigherThan480 ? "14px" : "12px"}
             >
               Usuario
             </FormLabel>
             <Input
               borderRadius="20px"
+              fontSize={isHigherThan480 ? "14px" : "12px"}
               type="text"
               value={username}
               placeholder="Ingresa tu nombre de usuario"
@@ -117,7 +135,7 @@ const Login = () => {
             <FormLabel
               fontWeight="400"
               ml="-8px"
-              fontSize="14px"
+              fontSize={isHigherThan480 ? "14px" : "12px"}
               mt="30px"
               mb="8px"
             >
@@ -126,6 +144,7 @@ const Login = () => {
             <InputGroup>
               <Input
                 borderRadius="20px"
+                fontSize={isHigherThan480 ? "14px" : "12px"}
                 type={!hide ? "password" : "text"}
                 value={password}
                 placeholder="Escribe tu contraseña"
@@ -155,7 +174,7 @@ const Login = () => {
               fontWeight="400"
               mt="30px"
               mb="30px"
-              fontSize="14px"
+              fontSize={isHigherThan480 ? "14px" : "12px"}
               onChange={handleSave}
             >
               Recordar cuenta
@@ -163,7 +182,7 @@ const Login = () => {
             <Button
               mt="10px"
               borderRadius="20px"
-              width="100%"
+              width={isHigherThan480 ? "100%" : "40%"}
               bgColor="#3737EC"
               color="#ffffff"
               onClick={handleSubmit}

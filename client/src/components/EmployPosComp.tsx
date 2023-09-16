@@ -14,6 +14,7 @@ import addIcon from "../assets/Work.svg";
 import downloadIcon from "../assets/Descargar.svg";
 import { BsSearch } from "react-icons/bs";
 import { ReactNode } from "react";
+import { useMediaQuery } from "@chakra-ui/react";
 
 interface Props {
   set: string;
@@ -29,6 +30,7 @@ interface Props {
   onClickArrow?: () => void;
   onClickAdd?: () => void;
   onClickDelete?: () => void;
+  paginationComp?: ReactNode;
 }
 const EmployPosComp = ({
   set,
@@ -43,30 +45,52 @@ const EmployPosComp = ({
   children,
   onClickArrow,
   onClickAdd,
+  paginationComp,
 }: Props) => {
+  const [isHigherThan480] = useMediaQuery("(min-width: 480px)");
+
   return (
     <Box
-      padding="80px"
+      padding={isHigherThan480 ? "80px" : "10px"}
       pt="20px"
       position="relative"
       width="100%"
       overflow="hidden"
     >
-      <Box display="flex" ml="-30px">
+      <Box
+        display="flex"
+        ml={isHigherThan480 ? "-30px" : "-10px"}
+        alignItems="center"
+      >
         <Image cursor="pointer" onClick={onClickArrow} src={arrowIcon} />
-        <Heading>{set}</Heading>
+        <Heading fontSize={isHigherThan480 ? "30px" : "20px"}>{set}</Heading>
       </Box>
       <Box display="flex" justifyContent="space-between" mt="40px">
-        <Box display="flex" alignItems="center" gap="40px">
+        <Box
+          display="flex"
+          alignItems="center"
+          gap={isHigherThan480 ? "40px" : "10px"}
+        >
           <Box cursor="pointer" display="flex" alignItems="center" gap="10px">
-            <Image width="20px" src={deleteIcon} />
-            <Text fontWeight="700" fontSize="18px" color="#3737EC">
+            <Image width={isHigherThan480 ? "20px" : "10px"} src={deleteIcon} />
+            <Text
+              fontWeight="700"
+              fontSize={isHigherThan480 ? "18px" : "12px"}
+              color="#3737EC"
+            >
               Borrar selección
             </Text>
           </Box>
           <Box cursor="pointer" display="flex" alignItems="center" gap="10px">
-            <Image width="20px" src={downloadIcon} />
-            <Text fontWeight="700" fontSize="18px" color="#3737EC">
+            <Image
+              width={isHigherThan480 ? "20px" : "10px"}
+              src={downloadIcon}
+            />
+            <Text
+              fontWeight="700"
+              fontSize={isHigherThan480 ? "18px" : "12px"}
+              color="#3737EC"
+            >
               Descargar datos
             </Text>
           </Box>
@@ -77,13 +101,20 @@ const EmployPosComp = ({
           alignItems="center"
           gap="10px"
           border="solid 1px #3737EC"
-          height="40px"
+          height={isHigherThan480 ? "40px" : "28px"}
           borderRadius="30px"
           padding="10px"
           onClick={onClickAdd}
+          _active={{ bgColor: "#6495ED", color: "#ffffff" }}
+          _hover={{ bgColor: "" }}
         >
-          <Image width="20px" src={addIcon} />
-          <Text fontWeight="700" fontSize="18px" color="#3737EC">
+          <Image width={isHigherThan480 ? "20px" : "10px"} src={addIcon} />
+          <Text
+            _active={{ bgColor: "#6495ED", color: "#ffffff" }}
+            fontWeight="700"
+            fontSize={isHigherThan480 ? "18px" : "12px"}
+            color="#3737EC"
+          >
             Agregar
           </Text>
         </Box>
@@ -94,16 +125,27 @@ const EmployPosComp = ({
         display="flex"
         justifyContent="center"
         alignItems="center"
-        gap="30px"
+        gap={isHigherThan480 ? "30px" : "6px"}
+        overflowX={isHigherThan480 ? "unset" : "auto"}
       >
-        <Box display="flex" alignItems="center" gap="10px">
-          <Text fontWeight="700" fontSize="14px">
+        <Box
+          width={isHigherThan480 ? "unset" : "100%"}
+          display="flex"
+          alignItems="center"
+          gap="10px"
+          overflowX={isHigherThan480 ? "unset" : "auto"}
+        >
+          <Text fontWeight="700" fontSize={isHigherThan480 ? "14px" : "8px"}>
             Todos
           </Text>
           <Checkbox></Checkbox>
         </Box>
-        <Box>
-          <Text fontWeight="700" fontSize="14px" mb="8px">
+        <Box width={isHigherThan480 ? "unset" : "100%"}>
+          <Text
+            fontWeight="700"
+            fontSize={isHigherThan480 ? "14px" : "10px"}
+            mb="8px"
+          >
             Nombre
           </Text>
           <InputGroup>
@@ -115,7 +157,11 @@ const EmployPosComp = ({
           </InputGroup>
         </Box>
         <Box>
-          <Text fontWeight="700" fontSize="14px" mb="8px">
+          <Text
+            fontWeight="700"
+            fontSize={isHigherThan480 ? "14px" : "10px"}
+            mb="8px"
+          >
             Identificación
           </Text>
           <InputGroup>
@@ -127,7 +173,11 @@ const EmployPosComp = ({
           </InputGroup>
         </Box>
         <Box>
-          <Text fontWeight="700" fontSize="14px" mb="8px">
+          <Text
+            fontWeight="700"
+            fontSize={isHigherThan480 ? "14px" : "10px"}
+            mb="8px"
+          >
             {address || area}
           </Text>
           <InputGroup>
@@ -139,7 +189,11 @@ const EmployPosComp = ({
           </InputGroup>
         </Box>
         <Box>
-          <Text fontWeight="700" fontSize="14px" mb="8px">
+          <Text
+            fontWeight="700"
+            fontSize={isHigherThan480 ? "14px" : "10px"}
+            mb="8px"
+          >
             {phone || position}
           </Text>
           <InputGroup>
@@ -151,7 +205,11 @@ const EmployPosComp = ({
           </InputGroup>
         </Box>
         <Box>
-          <Text fontWeight="700" fontSize="14px" mb="8px">
+          <Text
+            fontWeight="700"
+            fontSize={isHigherThan480 ? "14px" : "10px"}
+            mb="8px"
+          >
             {city || role}
           </Text>
           <InputGroup>
@@ -163,7 +221,11 @@ const EmployPosComp = ({
           </InputGroup>
         </Box>
         <Box>
-          <Text fontWeight="700" fontSize="14px" mb="8px">
+          <Text
+            fontWeight="700"
+            fontSize={isHigherThan480 ? "14px" : "10px"}
+            mb="8px"
+          >
             {state || boss}
           </Text>
           <InputGroup>
@@ -174,11 +236,18 @@ const EmployPosComp = ({
             ></InputRightElement>
           </InputGroup>
         </Box>
-        <Text fontWeight="700" fontSize="14px" mb="8px">
+        <Text
+          fontWeight="700"
+          fontSize={isHigherThan480 ? "14px" : "10px"}
+          mb="8px"
+        >
           Acciones
         </Text>
       </Box>
       <Box>{children}</Box>
+      <Box>
+        <Box>{paginationComp}</Box>
+      </Box>
     </Box>
   );
 };

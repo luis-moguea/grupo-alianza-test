@@ -1,6 +1,7 @@
 import { Text, Box, Input, Button, SimpleGrid, Image } from "@chakra-ui/react";
 import "../styles/blur.css";
 import closeIcon from "../assets/cerrar.svg";
+import { useMediaQuery } from "@chakra-ui/react";
 
 interface Props {
   onClick?: () => void;
@@ -37,17 +38,20 @@ const NewData = ({
   boss,
   left,
 }: Props) => {
+  const [isHigherThan480] = useMediaQuery("(min-width: 480px)");
+
   return (
     <>
       <Box
         mt="10px"
-        width="800px"
+        width={isHigherThan480 ? "800px" : "250px"}
+        mr={isHigherThan480 ? "unset" : "40px"}
         height="492px"
         borderRadius="10px"
         bgColor="#ffffff"
         position="absolute"
         boxShadow="2px 1px 5px 3px rgba(0, 0, 0, 0.25)"
-        zIndex="777"
+        zIndex="10000"
         left={left}
       >
         <Box
@@ -72,16 +76,21 @@ const NewData = ({
           <SimpleGrid padding="40px" pb="0" pt="0" columns={2} columnGap="20px">
             <Box>
               <Text
+                fontSize={isHigherThan480 ? "14px" : "12px"}
                 mb="8px"
                 fontWeight="400"
                 userSelect="none"
                 ml="-8px"
                 mt="40px"
-                fontSize="14px"
               >
                 {name}
               </Text>
-              <Input cursor="default" borderRadius="20px" type="text"></Input>
+              <Input
+                fontSize={isHigherThan480 ? "14px" : "12px"}
+                cursor="default"
+                borderRadius="20px"
+                type="text"
+              ></Input>
             </Box>
             <Box>
               <Text
@@ -90,11 +99,16 @@ const NewData = ({
                 userSelect="none"
                 ml="-8px"
                 mt="40px"
-                fontSize="14px"
+                fontSize={isHigherThan480 ? "14px" : "12px"}
               >
                 {lastName}
               </Text>
-              <Input cursor="default" borderRadius="20px" type="text"></Input>
+              <Input
+                fontSize={isHigherThan480 ? "14px" : "12px"}
+                cursor="default"
+                borderRadius="20px"
+                type="text"
+              ></Input>
             </Box>
             <Box>
               <Text
@@ -103,78 +117,98 @@ const NewData = ({
                 userSelect="none"
                 ml="-8px"
                 mt="40px"
-                fontSize="14px"
+                fontSize={isHigherThan480 ? "14px" : "12px"}
               >
                 {id || area}
               </Text>
-              <Input cursor="default" borderRadius="20px" type="text"></Input>
+              <Input
+                fontSize={isHigherThan480 ? "14px" : "12px"}
+                cursor="default"
+                borderRadius="20px"
+                type="text"
+              ></Input>
             </Box>
             <Box>
               <Text
+                fontSize={isHigherThan480 ? "14px" : "12px"}
                 mb="8px"
                 fontWeight="400"
                 userSelect="none"
                 ml="-8px"
                 mt="40px"
-                fontSize="14px"
               >
                 {phone || position}
               </Text>
-              <Input cursor="default" borderRadius="20px" type="text"></Input>
+              <Input
+                fontSize={isHigherThan480 ? "14px" : "12px"}
+                cursor="default"
+                borderRadius="20px"
+                type="text"
+              ></Input>
             </Box>
             <Box>
               <Text
+                fontSize={isHigherThan480 ? "14px" : "12px"}
                 mb="8px"
                 fontWeight="400"
                 userSelect="none"
                 ml="-8px"
                 mt="40px"
-                fontSize="14px"
               >
                 {city || role}
               </Text>
-              <Input cursor="default" borderRadius="20px" type="text"></Input>
+              <Input
+                fontSize={isHigherThan480 ? "14px" : "12px"}
+                cursor="default"
+                borderRadius="20px"
+                type="text"
+              ></Input>
             </Box>
             <Box>
               <Text
+                fontSize={isHigherThan480 ? "14px" : "12px"}
                 mb="8px"
                 fontWeight="400"
                 userSelect="none"
                 ml="-8px"
                 mt="40px"
-                fontSize="14px"
               >
                 {state || boss}
               </Text>
-              <Input cursor="default" borderRadius="20px" type="text"></Input>
+              <Input
+                fontSize={isHigherThan480 ? "14px" : "12px"}
+                cursor="default"
+                borderRadius="20px"
+                type="text"
+              ></Input>
             </Box>
           </SimpleGrid>
         </form>
         <Box
           display="flex"
           justifyContent="center"
-          gap="40px"
+          gap={isHigherThan480 ? "40px" : "20px"}
           pb="40px"
           pt="25px"
         >
           <Button
-            width="112px"
-            height="41px"
+            width={isHigherThan480 ? "112px" : "80px"}
+            height={isHigherThan480 ? "41px" : "30px"}
             borderRadius="20px"
             onClick={onClick}
             bgColor="#D2D2D2"
             color="#989898"
-            fontSize="18px"
+            fontSize={isHigherThan480 ? "18px" : "14px"}
           >
             Cancelar
           </Button>
           <Button
-            width="112px"
-            height="41px"
+            width={isHigherThan480 ? "112px" : "80px"}
+            height={isHigherThan480 ? "41px" : "30px"}
             borderRadius="20px"
             bgColor="#3737EC"
             color="#ffffff"
-            fontSize="18px"
+            fontSize={isHigherThan480 ? "18px" : "14px"}
           >
             Guardar
           </Button>
