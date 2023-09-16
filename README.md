@@ -22,6 +22,7 @@ Client:
 - Typescript
 - CSS
 - React-icons
+- React-router
 
 Server:
 - PHP
