@@ -51,8 +51,6 @@ const DataComponent = ({
     setEdit(true);
   };
 
-  console.log(isCheckedNow);
-
   return (
     <>
       <Box position="relative" overflowX={isHigherThan480 ? "unset" : "auto"}>
