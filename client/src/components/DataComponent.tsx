@@ -5,7 +5,7 @@ import NewData from "./NewData";
 import { newInfoData } from "../data/newInfoData";
 import { useMediaQuery } from "@chakra-ui/react";
 
-import { useState, ReactNode } from "react";
+import { useState, ReactNode, useEffect } from "react";
 
 interface Props {
   name: string;
@@ -20,6 +20,7 @@ interface Props {
   city?: string;
   state?: string;
   phone?: string;
+  isCheckedNow: boolean;
 }
 
 const DataComponent = ({
@@ -34,13 +35,23 @@ const DataComponent = ({
   city,
   phone,
   state,
+  isCheckedNow,
 }: Props) => {
   const [edit, setEdit] = useState(false);
   const [isHigherThan480] = useMediaQuery("(min-width: 480px)");
+  const [checked, setChecked] = useState(isCheckedNow);
+
+  useEffect(() => {
+    if (!isCheckedNow) {
+      setChecked(false);
+    }
+  }, [checked]);
 
   const handleEdit = () => {
     setEdit(true);
   };
+
+  console.log(isCheckedNow);
 
   return (
     <>
@@ -58,7 +69,7 @@ const DataComponent = ({
           padding={isHigherThan480 ? "20px" : "5px"}
           borderRadius="8px"
         >
-          <Checkbox></Checkbox>
+          <Checkbox isChecked={isCheckedNow || undefined}></Checkbox>
           <Text fontSize={isHigherThan480 ? "14px" : "10px"} fontWeight="400">
             {name}
           </Text>

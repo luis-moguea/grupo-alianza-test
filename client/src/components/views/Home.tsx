@@ -46,6 +46,8 @@ const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(7);
   const [data, setData] = useState<Position[] | Employ[]>([]);
+  const [selectAll, setSelectAll] = useState(false);
+
   const [isHigherThan480] = useMediaQuery("(min-width: 480px)");
 
   useEffect(() => {
@@ -71,6 +73,11 @@ const Home = () => {
     setRenderEmploys(false);
     setRenderPos(false);
     setRenderCont(true);
+  };
+
+  const handleSelectAll = () => {
+    setSelectAll(!selectAll);
+    console.log(selectAll);
   };
 
   const handleDeletePos = () => {
@@ -146,6 +153,7 @@ const Home = () => {
             phone={employPostData.employs.phone}
             onClickArrow={handleRenderCont}
             onClickAdd={handleAddEmploy}
+            onClickChange={handleSelectAll}
             paginationComp={
               <Box
                 display="flex"
@@ -288,6 +296,7 @@ const Home = () => {
                   el.hasOwnProperty("state") ? (el as Employ).state : undefined
                 }
                 onClickEdit={handleDeleteEmploy}
+                isCheckedNow={selectAll}
               >
                 <p>Hola</p>
               </DataComponent>
@@ -303,6 +312,7 @@ const Home = () => {
             onClickArrow={handleRenderCont}
             position={employPostData.position.position}
             onClickAdd={handleAddPosition}
+            onClickChange={handleSelectAll}
             paginationComp={
               <Box
                 display="flex"
@@ -445,6 +455,7 @@ const Home = () => {
                   el.hasOwnProperty("boss") ? (el as Position).boss : undefined
                 }
                 onClickEdit={handleDeletePos}
+                isCheckedNow={selectAll}
               />
             ))}
           </EmployPosComp>

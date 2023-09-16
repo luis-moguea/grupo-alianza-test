@@ -31,6 +31,7 @@ interface Props {
   onClickAdd?: () => void;
   onClickDelete?: () => void;
   paginationComp?: ReactNode;
+  onClickChange: () => void;
 }
 const EmployPosComp = ({
   set,
@@ -46,6 +47,7 @@ const EmployPosComp = ({
   onClickArrow,
   onClickAdd,
   paginationComp,
+  onClickChange,
 }: Props) => {
   const [isHigherThan480] = useMediaQuery("(min-width: 480px)");
 
@@ -138,7 +140,7 @@ const EmployPosComp = ({
           <Text fontWeight="700" fontSize={isHigherThan480 ? "14px" : "8px"}>
             Todos
           </Text>
-          <Checkbox></Checkbox>
+          <Checkbox onChange={onClickChange}></Checkbox>
         </Box>
         <Box width={isHigherThan480 ? "unset" : "100%"}>
           <Text
