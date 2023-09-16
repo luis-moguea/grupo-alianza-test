@@ -50,7 +50,7 @@ const NavBar = () => {
         mr={isHigherThan480 ? "70px" : "unset"}
       >
         <Image
-          border={activeBorder ? "solid 3px #3737EC" : "unset"}
+          border={!activeBorder ? "solid 3px #3737EC" : "unset"}
           borderRadius="50px"
           width={isHigherThan480 ? "unset" : "40px"}
           onClick={handleShow}
