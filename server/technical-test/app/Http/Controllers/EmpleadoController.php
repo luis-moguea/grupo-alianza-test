@@ -1,6 +1,5 @@
 <?php
 
-namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Empleado;
 use Illuminate\Http\Request;
@@ -14,7 +13,6 @@ class EmpleadoController extends Controller
 
     public function store(Request $request)
     {
-        // Validar los datos del formulario aquí
         $request->validate([
             'nombre' => 'required',
             
@@ -32,10 +30,8 @@ class EmpleadoController extends Controller
 
     public function update(Request $request, Empleado $empleado)
     {
-        // Validar los datos del formulario aquí
         $request->validate([
             'nombre' => 'required',
-            // Agrega aquí las reglas de validación para otros campos
         ]);
 
         $empleado->update($request->all());

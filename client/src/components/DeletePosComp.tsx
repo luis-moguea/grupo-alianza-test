@@ -17,6 +17,7 @@ const DeletePosComp = ({ onClickCancel }: Props) => {
       alignItems="center"
       width={isHigherThan480 ? "616px" : "250px"}
       textAlign={isHigherThan480 ? "unset" : "center"}
+      boxShadow="2px 1px 5px 3px rgba(0, 0, 0, 0.25)"
       height="492px"
       bgColor="#ffffff"
       position="absolute"
@@ -24,7 +25,6 @@ const DeletePosComp = ({ onClickCancel }: Props) => {
       left={isHigherThan480 ? "36%" : "24%"}
       bottom="50%"
       padding="30px"
-      border="solid 1px"
       borderRadius="10px"
     >
       <Image mt="20px" width="45px" src={deleteIcon} />
