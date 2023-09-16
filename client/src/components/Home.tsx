@@ -11,7 +11,7 @@ import arrowIcon from "../assets/Flechas verticales negra.svg";
 import leftArrowIcon from "../assets/arrow-sm-left.svg";
 import rightArrowIcon from "../assets/arrow-right.svg";
 import DataComponent from "./DataComponent";
-import { fakeData } from "../data/fakeData";
+import { fakeData } from "../data/fakeData.ts";
 import { employPostData } from "../data/employsPosData";
 import { newInfoData } from "../data/newInfoData";
 import { useMediaQuery } from "@chakra-ui/react";

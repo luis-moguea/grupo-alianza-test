@@ -1,5 +1,4 @@
 import { Text, Box, Input, Button, SimpleGrid, Image } from "@chakra-ui/react";
-import "../styles/blur.css";
 import closeIcon from "../assets/cerrar.svg";
 import { useMediaQuery } from "@chakra-ui/react";
 
