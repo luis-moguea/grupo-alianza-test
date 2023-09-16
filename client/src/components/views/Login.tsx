@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { PiEyeClosedLight } from "react-icons/pi";
 import { PiEyeLight } from "react-icons/pi";
-import { dataLogin } from "../data/loginData";
+import { dataLogin } from "../../data/loginData";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "@chakra-ui/react";

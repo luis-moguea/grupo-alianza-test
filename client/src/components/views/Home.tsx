@@ -1,19 +1,19 @@
 import { useEffect, useState, useMemo } from "react";
 import { Box, Button, Image, Text, Tooltip } from "@chakra-ui/react";
-import EmployPosComp from "./EmployPosComp";
-import DeletePosComp from "./DeletePosComp";
-import DeleteEmployComp from "./DeleteEmployComp";
-import NewData from "./NewData";
-import Sidebar from "./Sidebar";
-import Content from "./Content";
-import NavBar from "./NavBar";
+import EmployPosComp from "../EmployPosComp.tsx";
+import DeletePosComp from "../DeletePosComp.tsx";
+import DeleteEmployComp from "../DeleteEmployComp.tsx";
+import NewData from "../NewData.tsx";
+import Sidebar from "../Sidebar.tsx";
+import Content from "../Content.tsx";
+import NavBar from "../NavBar.tsx";
 import arrowIcon from "../assets/Flechas verticales negra.svg";
 import leftArrowIcon from "../assets/arrow-sm-left.svg";
 import rightArrowIcon from "../assets/arrow-right.svg";
-import DataComponent from "./DataComponent";
-import { fakeData } from "../data/fakeData.ts";
-import { employPostData } from "../data/employsPosData";
-import { newInfoData } from "../data/newInfoData";
+import DataComponent from "../DataComponent.tsx";
+import { fakeData } from "../../data/fakeData.ts";
+import { employPostData } from "../../data/employsPosData.ts";
+import { newInfoData } from "../../data/newInfoData.ts";
 import { useMediaQuery } from "@chakra-ui/react";
 
 interface Employ {
