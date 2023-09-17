@@ -31,8 +31,8 @@ Server:
 
 ## Setup
 
-Para ejecutar este proyecto, simplemente clona este repositorio desde Github, (CLIENT SIDE) accede al directorio "client" y ejecútalo localmente usando el comando npm run dev. 
-(BACKEND SIDE) accede al directorio "server" luego al directori "technical-test" y ejecútalo localmente usando el comando php artisan serve. 
+Para ejecutar este proyecto, simplemente clona este repositorio desde Github; (CLIENT SIDE: accede al directorio "client" y ejecútalo localmente usando el comando "npm run dev". 
+(BACKEND SIDE: accede al directorio "server" luego al directorio "technical-test" y ejecútalo localmente usando el comando "php artisan serve".
 
 ### Clone the repository
 
